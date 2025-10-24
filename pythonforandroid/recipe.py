@@ -1019,6 +1019,7 @@ class PythonRecipe(Recipe):
 
         hostpython = sh.Command(self.hostpython_location)
         hpenv = env.copy()
+        hpenv['PYTHONPATH'] = join(dirname(self.real_hostpython_location), 'Lib', 'site-packages')
         with current_directory(self.get_build_dir(arch.arch)):
 
             if isfile("setup.py"):
