@@ -3,7 +3,7 @@ from pythonforandroid.recipe import CompiledComponentsPythonRecipe
 
 class CythonRecipe(CompiledComponentsPythonRecipe):
 
-    version = '3.1.5'
+    version = '3.1.6'
     url = 'https://github.com/cython/cython/archive/{version}.tar.gz'
     site_packages_name = 'cython'
     depends = ['setuptools']
