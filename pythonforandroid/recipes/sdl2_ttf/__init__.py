@@ -1,3 +1,6 @@
+import os
+import sh
+from pythonforandroid.logger import shprint
 from pythonforandroid.recipe import BootstrapNDKRecipe
 
 
