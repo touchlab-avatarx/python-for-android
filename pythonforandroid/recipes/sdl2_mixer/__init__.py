@@ -13,7 +13,13 @@ class LibSDL2Mixer(BootstrapNDKRecipe):
             os.path.join(self.ctx.bootstrap.build_dir, "jni", "SDL2_mixer", "include")
         ]
 
-    with open(os.path.join(build_dir, ".gitmodules"), "r") as file:
+    def prebuild_arch(self, arch):
+        # We do not have a folder for each arch on BootstrapNDKRecipe, so we
+        # need to skip the external deps download if we already have done it.
+
+        build_dir = self.get_build_dir(arch.arch)
+
+        with open(os.path.join(build_dir, ".gitmodules"), "r") as file:
             for section in file.read().split('[submodule "')[1:]:
                 line_split = section.split(" = ")
                 # Parse .gitmodule section
