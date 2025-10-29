@@ -36,6 +36,7 @@ class LibSDL2Recipe(BootstrapNDKRecipe):
                 sh.Command(join(self.ctx.ndk_dir, "ndk-build")),
                 "V=1",
                 "NDK_DEBUG=" + ("1" if self.ctx.build_as_debuggable else "0"),
+                "-D_LIBCPP_HAS_NO_EXCEPTIONS",
                 _env=env
             )
 
